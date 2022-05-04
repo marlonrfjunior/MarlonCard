@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import MessageUI
 
-struct ContentView: View {
+struct ContentView: View{
+    let number: String = "+55(34)98412-7589"
+    let email: String = "marlonrfjunior@outlook.com"
     var body: some View {
         ZStack{
             Color(red: 0.16, green: 0.50, blue: 0.80)
@@ -30,8 +33,17 @@ struct ContentView: View {
                     .font(.system(size: 20))
                     .bold()
                 Divider()
-                InfoView(text: "+55 (34) 98412-7589", imageName: "phone.fill")
-                InfoView(text: "marlonrfjunior@outlook.com", imageName: "envelope.fill")
+                
+                    .padding(.top)
+                
+               
+                InfoViewURL(text: number, imageName: "phone.fill",urlString: "tel://\(number)")
+                    .padding(.top)
+                InfoViewURL(text: email, imageName: "envelope.fill", urlString: "mailto:marlonrfjunior@outlook.com")
+                InfoViewURL(text:"LinkedIn", imageName: "link", urlString:"https://www.linkedin.com/in/marlonrfjunior/")
+                InfoViewURL(text:"Github", imageName: "link", urlString: "https://github.com/marlonrfjunior")
+
+                
             }
         }
     }
